@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+html, body, ul, p, h3, h1, h2, h4 {
+  padding: 0;
+  margin: 0;
+  font-family: "Public Sans", "Marianne", arial, sans-serif;
+  color: var(rgb(255, 255, 255));
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  color: inherit;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  cursor: pointer;
+  font-size: 100%;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  border: none;
+  background: initial;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  background: rgb(33, 43, 54);
 
-.App-link {
-  color: #61dafb;
 }
+.pixel {
+  max-width: 100%;
+}
+.pixel-show {
+  margin-bottom: 15px;
+}
+.pixel-color {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  width: 100%;
+  box-shadow: rgb(145 158 171 / 30%) 0px 0px 10px 0px;
+}
+.pixel-info {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 2em;
+}
+.pixel-info:hover{
+  text-decoration: underline;
+  transform: scale(1.1);
+}
+.pixel-result {
+  font-size: 8em;
+}
+.pixel-form {
+  padding: 15px;
+  box-shadow: rgb(145 158 171 / 30%) 0px 0px 10px 0px;
+  font-size: 2em;
+  background: #484f58;
+  color:rgb(255, 255, 255);
+}
+input {
+  background: #484f58;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 3px;
+  height: 38px;
+  padding-left: 10px;
+  font-size: 0.9em;
+  font-weight: 100;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+input[name="red"] {
+  color: rgb(255, 0, 0);
+  border-bottom: 1px solid rgb(255, 0, 0);
+}
+input[name="green"] {
+  color: rgb(0, 255, 0);
+  border-bottom: 1px solid rgb(0, 255, 0);
+}
+input[name="blue"] {
+  color: rgb(0, 0, 255);
+  border-bottom: 1px solid rgb(0, 0, 255);
+}
+input:hover {
+  background: #606872;
 }

@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Pixel Color energy for OLED
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## Running
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm i & npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Explication
+Based on research: https://www.researchgate.net/figure/Commercially-available-LEDs-with-colors-wavelength-range-and-material-used_tbl1_257761181
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Demo at: https://damienmoulin.github.io/pixel.github.io/
 
-### `npm test`
+This is only a matter of thinking, I expect opinions and feedback on it. The goal is not to define the consumption of a pixel in Watt but to compare the relative energy consumed between several colors. In addition the consumption also depends on the hardware, the LEDs of each slab do not all have the same consumption
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For begin OLED technology uses 3 LEDs (R,G,B) per pixel
+Thank to this the black color is possible by switching off the 3 LEDs(R,G,B)
+* Black: 0 V
 
-### `npm run build`
+From the research doc of light by led we know that:
+* Red: 1.8V
+* Green: 3.9V
+* Blue: 4.35V
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+But, hight frequency = hight consumption
+The white is generate when blue, green, red is full of power
+* White: 4.35V + 3.9V + 1.8V => 10.05V
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+We have deduced that 
+(E is relative energy consumption)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Black = 0 E
+* Red = X E
+* Green = X E
+* Blue = X E
+* White = 100 E 
 
-### `npm run eject`
+By doing a simple calculation (color / 10.05 * 100 )
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+|Color|Frequency|Relative Energy| RGB |
+|--|--|--|--|
+|Black   | 0    | 0   | rgb(0,0,0)|
+|Red  | 442  | 18  | rgb(255,0,0)|
+|Green   | 555  | 39  | rgb(0,255,0)|
+|Blue   | 635  | 43  | rgb(0,0,255)|
+|White   | 1632 | 100 | rgb(255,255,255)|
